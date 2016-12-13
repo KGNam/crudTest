@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+
+<a href="/board/write">글쓰기로 이동</a>
+<br>
+<br>
+
+<table border="1">
+    <tr>
+        <td>번호</td>
+        <td>작성자</td>
+        <td>제목</td>
+        <td>조회수</td>
+        <td>변경일</td>
+    </tr>
+
+<%
+     for(var i=0; i<rows.length; i++)
+     {
+        var oneItem = rows[i];
+%>
+    <tr>
+        <td><%=oneItem.idx%></td>
+        <td><%=oneItem.creator_id%></td>
+        <td><a href="/board/read/<%=oneItem.idx%>"><%=oneItem.title%></a></td>
+        <td><%=oneItem.hit%></td>
+        <td><%=oneItem.modidate%></td>
+    </tr>
+
+<%
+     }
+%>
+</table>
+
+<div class="row">
+  <span><a href="">1</a></span>
+  <span><a href="">2</a></span>
+  <span><a href="">3</a></span>
+  <span><a href="">4</a></span>
+  <span><a href="">5</a></span>
+  <span><a href="">6</a></span>
+</div>
+
+</body>
+</html>
